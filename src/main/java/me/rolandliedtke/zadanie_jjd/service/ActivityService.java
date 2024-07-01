@@ -5,6 +5,7 @@ import me.rolandliedtke.zadanie_jjd.repository.ActivityRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class ActivityService {
@@ -40,4 +41,7 @@ public class ActivityService {
         return "Success!";
     }
 
+    public Activity getById(Long id) {
+        return activityRepository.findById(id).orElseThrow();
+    }
 }

@@ -35,6 +35,7 @@ public class ApiController {
     }
 
 
+
     // CREATE
     @PostMapping("/technicians")
     @Operation(summary = "Create a technician")
@@ -54,7 +55,7 @@ public class ApiController {
     }
 
 
-    // READ
+    // READ ALL
     @GetMapping("/technicians")
     @Operation(summary = "Return list of all technicians")
     public ResponseEntity<List<Technician>> getTechnicians() {
@@ -73,6 +74,25 @@ public class ApiController {
         return ResponseEntity.ok(activityService.findAll());
     }
 
+
+    // READ BY ID
+    @GetMapping("/technicians/{id}")
+    @Operation(summary = "Return single technician by ID")
+    public ResponseEntity<Technician> getTechnicianById(@PathVariable Long id) {
+        return ResponseEntity.ok(technicianService.getById(id));
+    }
+
+    @GetMapping("/regions/{id}")
+    @Operation(summary = "Return single region by ID")
+    public ResponseEntity<Region> getRegionById(@PathVariable Long id) {
+        return ResponseEntity.ok(regionService.getById(id));
+    }
+
+    @GetMapping("/activities/{id}")
+    @Operation(summary = "Return single activity by ID")
+    public ResponseEntity<Activity> getActivityById(@PathVariable Long id) {
+        return ResponseEntity.ok(activityService.getById(id));
+    }
 
 
     // UPDATE

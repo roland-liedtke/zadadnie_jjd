@@ -38,4 +38,8 @@ public class RegionService {
         regionRepository.deleteById(id);
         return "Success!";
     }
+
+    public Region getById(Long id) {
+        return regionRepository.findById(id).orElseThrow();
+    }
 }

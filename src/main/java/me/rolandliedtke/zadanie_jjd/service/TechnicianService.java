@@ -36,4 +36,8 @@ public class TechnicianService {
         technicianRepository.deleteById(id);
         return "Success!";
     }
+
+    public Technician getById(Long id) {
+        return technicianRepository.findById(id).orElseThrow();
+    }
 }
